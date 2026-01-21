@@ -1,0 +1,40 @@
+{
+
+
+"airplan":  [
+    {
+        "name":"vinisha ",
+        "number":"67890075",
+        "adhar":"112344321",
+"checkIn":"26-01-2026",
+"checkOut":"28-01-2026",
+"city":"bhopal",
+"peple":"3"
+ },
+
+{
+ 
+        "name":"aruuu ",
+        "number":"9076754",
+        "adhar":"689786754",
+"checkIn":"2-01-2024",
+"checkOut":"7-5-2027",
+"city":"mumbai",
+"peple":"6"
+},
+
+{
+
+        "name":"priya  ",
+        "number":"6789988",
+        "adhar":"12344",
+"checkIn":"8-07-2026",
+"checkOut":"8-08-2026",
+"city":"jaipur",
+"peple":"6"
+}
+
+]
+
+
+}
