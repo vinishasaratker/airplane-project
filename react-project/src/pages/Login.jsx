@@ -1,96 +1,74 @@
 import React, { useState } from "react";
 import "./login.css";
+import Prism from "./animation-login";
+import tailwind from 'tailwind.css';
 
 function Login() {
-  const [showSignup, setShowSignup] = useState(false);
-  const [activeButton, setActiveButton] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [flip, setFlip] = useState(false);
 
   return (
-    <div className={`box1 ${showSignup ? "show-sign" : ""}`}>
-      {/* Toggle Login button */}
-      <button
-        className={`toggle-login ${activeButton ? "active" : ""}`}
-        onClick={() => setActiveButton(!activeButton)}
-      >
-        Login
-      </button>
+    <div className="page">
 
-      {/* LOGIN */}
-      <div className="form-wrapper">
-        <form className="form">
-          <h2>Login</h2>
+      {/* LOGIN BUTTON */}
+      {!open && (
+        <button className="login-btn" onClick={() => setOpen(true)}>
+          Login
+        </button>
+      )}
 
-          <div className="input-group">
-            <input type="text" required />
-            <label>Username</label>
-          </div>
+      {/* CARD */}
+      {open && (
+        <div className={`card ${flip ? "flip" : ""}`}>
 
-          <div className="input-group">
-            <input type="password" required />
-            <label>Password</label>
-          </div>
+          {/* LOGIN */}
+          <div className="face front">
+            <span className="close" onClick={() => {
+              setOpen(false);
+              setFlip(false);
+            }}>×</span>
 
-          <div className="remember">
-            <label>
-              <input type="checkbox" /> Remember me
-            </label>
-          </div>
+            <h2>Login</h2>
+            <input type="text" placeholder="Username" />
+            <input type="password" placeholder="Password" />
 
-          <button className="btn">Login</button>
+            <button className="btn">Login</button>
 
-          <div className="sign-link">
-            <p>
-              Don't have an account ?
-              <span
-                className="signup-link"
-                onClick={() => setShowSignup(true)}
-              >
-                {" "}
-                SignUp
-              </span>
+            <p onClick={() => setFlip(true)}>
+              New here? <span>Create account</span>
             </p>
           </div>
-        </form>
-      </div>
 
-      {/* SIGN UP */}
-      <div className="form-wrapper-sign-up">
-        <form className="form">
-          <h2>Sign Up</h2>
+          {/* SIGN UP */}
+          <div className="face back">
+            <span className="close" onClick={() => {
+              setOpen(false);
+              setFlip(false);
+            }}>×</span>
 
-          <div className="input-group">
-            <input type="text" required />
-            <label>Username</label>
-          </div>
+            <h2>Sign Up</h2>
+            <input type="text" placeholder="Username" />
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
 
-          <div className="input-group">
-            <input type="email" required />
-            <label>Email</label>
-          </div>
+            <button className="btn">Sign Up</button>
 
-          <div className="input-group">
-            <input type="password" required />
-            <label>Password</label>
-          </div>
-
-          <button className="btn">Sign Up</button>
-
-          <div className="sign-link">
-            <p>
-              Already have an account ?
-              <span
-                className="signIn-link"
-                onClick={() => setShowSignup(false)}
-              >
-                {" "}
-                Sign In
+            <p onClick={() => setFlip(false)}>
+              Already have account? <span>Login
+               
               </span>
             </p>
+ <h1 className="text-red-800"></h1>
+
+
           </div>
-        </form>
-      </div>
+
+        </div>
+      )}
+
     </div>
   );
 }
 
 export default Login;
+
